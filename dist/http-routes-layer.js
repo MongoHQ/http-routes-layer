@@ -14,6 +14,7 @@
 
   router = function(callback) {
     var routes;
+    require('./response')(this.express.response);
     try {
       routes = require(path.join(this.path.app, 'routes'));
     } catch (err) {

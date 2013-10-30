@@ -2,7 +2,7 @@
   "name": "http-routes-layer",
   "description": "layer-cake plugin to use a routes file and well-defined controller structure",
   "version": "0.0.2",
-  "homepage": "https://github.com/mattinsler/http-routes-layer",
+  "homepage": "https://github.com/MongoHQ/http-routes-layer",
   "author": {
     "name": "Matt Insler",
     "email": "matt.insler@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattinsler/http-routes-layer.git"
+    "url": "git://github.com/MongoHQ/http-routes-layer.git"
   },
   "bugs": {
-    "url": "https://github.com/mattinsler/http-routes-layer/issues"
+    "url": "https://github.com/MongoHQ/http-routes-layer/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/mattinsler/http-routes-layer/blob/master/LICENSE-MIT"
+      "url": "https://github.com/MongoHQ/http-routes-layer/blob/master/LICENSE-MIT"
     }
   ],
   "main": "dist/http-routes-layer",

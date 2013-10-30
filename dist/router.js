@@ -23,9 +23,15 @@
 
     Router.prototype._create_handler = function(handler) {
       var route;
-      handler = this._resolve_handler(handler);
-      route = new Route(this.app, handler);
-      return route.handler.bind(route);
+      if (typeof handler === 'function') {
+        return handler;
+      } else if (typeof handler === 'string') {
+        handler = this._resolve_handler(handler);
+        route = new Route(this.app, handler);
+        return route.handler.bind(route);
+      } else {
+        throw new Error('Invalid route handler');
+      }
     };
 
     Router.prototype.all = function() {

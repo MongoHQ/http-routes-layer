@@ -1,4 +1,3 @@
-_ = require 'lodash'
 path = require 'path'
 
 module.exports = (response) ->

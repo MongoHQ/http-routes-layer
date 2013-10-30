@@ -1,7 +1,5 @@
 (function() {
-  var path, _;
-
-  _ = require('lodash');
+  var path;
 
   path = require('path');
 

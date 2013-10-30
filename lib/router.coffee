@@ -13,9 +13,14 @@ class Router
     }
   
   _create_handler: (handler) ->
-    handler = @_resolve_handler(handler)
-    route = new Route(@app, handler)
-    route.handler.bind(route)
+    if typeof handler is 'function'
+      handler
+    else if typeof handler is 'string'
+      handler = @_resolve_handler(handler)
+      route = new Route(@app, handler)
+      route.handler.bind(route)
+    else
+      throw new Error('Invalid route handler')
   
   all: (path, filters..., handler) -> @app.express.all(path, (@opts.filters or []).concat(filters)..., @_create_handler(handler))
   get: (path, filters..., handler) -> @app.express.get(path, (@opts.filters or []).concat(filters)..., @_create_handler(handler))

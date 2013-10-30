@@ -1,9 +1,7 @@
 (function() {
-  var Route, path, _;
+  var Route, path;
 
   path = require('path');
-
-  _ = require('lodash');
 
   Route = (function() {
 
@@ -13,7 +11,8 @@
     }
 
     Route.prototype.handler = function(req, res, next) {
-      var controller, controller_path, _ref;
+      var controller, controller_path, k, v, _ref, _ref1;
+      console.log('ROUTE HANDLER');
       controller_path = path.join(this.app.path.controllers, this.opts.controller);
       try {
         controller = require(controller_path);
@@ -23,15 +22,22 @@
         } else {
           err.message = 'Error requiring controller at ' + controller_path + ': ' + err.message;
         }
+        console.log('GOT AN ERROR, CALLING NEXT');
         return next(err);
       }
       if (!((controller[this.opts.action] != null) && typeof controller[this.opts.action] === 'function')) {
+        console.log('CONTROLLER DOES NOT SUPPORT ACTION, CALLING NEXT');
         return next(new Error('Controller at ' + controller_path + ' does not support requested action ' + this.opts.action));
       }
       if ((_ref = res._layer_cake) == null) {
         res._layer_cake = {};
       }
-      _(res._layer_cake).extend(this.opts);
+      _ref1 = this.opts;
+      for (k in _ref1) {
+        v = _ref1[k];
+        res._layer_cake[k] = v;
+      }
+      console.log('CALLING CONTROLLER ACTION');
       return controller[this.opts.action](req, res, next);
     };
 

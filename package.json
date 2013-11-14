@@ -1,7 +1,7 @@
 {
   "name": "http-routes-layer",
   "description": "layer-cake plugin to use a routes file and well-defined controller structure",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/MongoHQ/http-routes-layer",
   "author": {
     "name": "Matt Insler",
